@@ -5,46 +5,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Emma's | Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/popper.js"></script>
     <style type="text/css">
         body {
-            margin: auto;
-            font-size: 16px;
-            font-family: Arial;
-            max-width: 100%;
-            height: 100%;
-            background-image: url("Images/car-background.png");
+            background-image: url("images/car-background.png");
             background-size: cover;
-        }
-
-        .time {
-            padding-left: 20px;
-        }     
-
-        p {
-            padding-bottom: 50px;
-        }
-
-        .container {
-            background-color: #C0C0C0;
-            margin: 0 auto;
-            width: 30%;
-            border: 3px solid #419A1C;
-            padding: 70px 0;
-            text-align: center;
         }
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="time">
-            <%: DateTime.Now.Date.ToLongDateString() %>
-        </div>
-        <div class="container">
-            <asp:Image src="Images/emmas-logo.png" Alt="emmas-logo" ID="Image1" runat="server" /><br />
-            <p><strong>WELCOME TO EMMA'S KIOSK!</strong></p>
-            <asp:Button ID="btnLogin" runat="server" Text="Sign In" Height="50px" Width="120px" OnClick="btnLogin_Click" />
-        </div>
+    <div class="card-header bg-transparent text-white mb-5">
+           <%: DateTime.Now.Date.ToLongDateString() %>
+    </div>
+        <div class="col-sm-2 offset-5 jumbotron">
+    <form class="text-center" id="form1" runat="server">
+            <asp:Image  src="Images/emmas-logo.png" Alt="emmas-logo" ID="Image1" runat="server" /><br />
+            <asp:Button CssClass="btn btn-secondary mt-5" ID="btnLogin" runat="server" Text="Sign In" Height="50px" Width="120px" OnClick="btnLogin_Click" />
     </form>
+    </div>
 </body>
 </html>
 
