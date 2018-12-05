@@ -22,6 +22,21 @@
             <asp:HyperLink ID="hlAllOrder" runat="server" NavigateUrl="~/Forms/RepairPages/OrderTools.aspx">Order Tools</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;
             <asp:HyperLink ID="hlAllWarranty" runat="server" NavigateUrl="~/Forms/RepairPages/Warranty.aspx">Warranty</asp:HyperLink>
+            <br />
+            <br />
+            <asp:GridView ID="gvAllRepairs" runat="server" AutoGenerateColumns="False" DataSourceID="dsAllRepairs">
+                <Columns>
+                    <asp:BoundField DataField="Customer" HeaderText="Customer" SortExpression="Customer" />
+                    <asp:BoundField DataField="Employee" HeaderText="Employee" SortExpression="Employee" />
+                    <asp:BoundField DataField="Order Date" HeaderText="Order Date" SortExpression="Order Date" />
+                    <asp:BoundField DataField="Service" HeaderText="Service" SortExpression="Service" />
+                    <asp:BoundField DataField="Date IN" HeaderText="Date IN" SortExpression="Date IN" />
+                    <asp:BoundField DataField="Date OUT" HeaderText="Date OUT" SortExpression="Date OUT" />
+                    <asp:BoundField DataField="Issue description" HeaderText="Issue description" SortExpression="Issue description" />
+                </Columns>
+            </asp:GridView>
+            <br />
+            <asp:ObjectDataSource ID="dsAllRepairs" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.AllRepairsTableAdapter"></asp:ObjectDataSource>
         </div>
     </form>
 </body>
