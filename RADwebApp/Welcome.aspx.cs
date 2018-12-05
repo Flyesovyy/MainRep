@@ -42,5 +42,47 @@ namespace Logintesting
         {
             Response.Redirect("~/Policies.aspx");
         }
+
+        protected void btnSearchCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Customers/Customers.aspx");
+        }
+
+        protected void btnEditCustomerton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Customers/Customers.aspx");
+        }
+
+        protected void btnNewCustomer_Click(object sender, EventArgs e)
+        {
+            string add = "addNew";
+            Response.Redirect("~/Forms/Customers/Customers.aspx?mode=" + add);
+        }
+
+        protected void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Customers/Customers.aspx");
+        }
+
+        protected void btnSearchEmployee_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Employees/Employees.aspx");
+        }
+
+        protected void btnEditEmployee_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Employees/Employees.aspx");
+        }
+
+        protected void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            string add = "addNew";
+            Response.Redirect("~/Forms/Employees/Employees.aspx?mode=" + add);
+        }
+
+        protected void btnDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Employees/Employees.aspx");
+        }
     }
 }

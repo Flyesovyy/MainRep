@@ -57,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="EmmasDataSet.cs">
+      <DependentUpon>EmmasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmmasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +75,10 @@
   <ItemGroup>
     <Content Include="Emmas.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emmas_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Emmas.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

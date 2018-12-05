@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RADwebApp.Forms.CustomerPages {
+namespace RADwebApp.Forms.Sales {
     
     
-    public partial class Customers {
+    public partial class searchSales {
         
         /// <summary>
         /// form1 control.
@@ -22,93 +22,75 @@ namespace RADwebApp.Forms.CustomerPages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnNewCustomer control.
+        /// txtOrderNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewCustomer;
+        protected global::System.Web.UI.WebControls.TextBox txtOrderNum;
         
         /// <summary>
-        /// dvCustomerNew control.
+        /// txtCustName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView dvCustomerNew;
+        protected global::System.Web.UI.WebControls.TextBox txtCustName;
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// txtEmpName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
         
         /// <summary>
-        /// panelFilters control.
+        /// txtDateStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelFilters;
+        protected global::System.Web.UI.WebControls.TextBox txtDateStart;
         
         /// <summary>
-        /// lblFilterCity control.
+        /// txtDateEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFilterCity;
+        protected global::System.Web.UI.WebControls.TextBox txtDateEnd;
         
         /// <summary>
-        /// ddlCity control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCity;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// gvCustomers control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCustomers;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// dsSearchCustomer control.
+        /// dsSearchSales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsSearchCustomer;
-        
-        /// <summary>
-        /// dsCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsCity;
-        
-        /// <summary>
-        /// dsCustomer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsCustomer;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsSearchSales;
     }
 }

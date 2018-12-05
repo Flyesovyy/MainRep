@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RADwebApp {
+namespace RADwebApp.Forms.Employees {
     
     
-    public partial class CustomerOrders {
+    public partial class EmployeeDetails {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,22 @@ namespace RADwebApp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// gvCustomerOrders control.
+        /// dvEditEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCustomerOrders;
+        protected global::System.Web.UI.WebControls.DetailsView dvEditEmployee;
+        
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
         /// btnBack control.
@@ -40,12 +49,21 @@ namespace RADwebApp {
         protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
-        /// dsCustomerOrders control.
+        /// dsPosition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsCustomerOrders;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsPosition;
+        
+        /// <summary>
+        /// dsEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployee;
     }
 }

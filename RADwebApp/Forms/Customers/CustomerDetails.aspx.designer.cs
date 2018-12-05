@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RADwebApp.Forms.CustomerPages {
+namespace RADwebApp.Forms.Customers {
     
     
-    public partial class CustomerEdit {
+    public partial class CustomerDetails {
         
         /// <summary>
         /// form1 control.
@@ -31,6 +31,15 @@ namespace RADwebApp.Forms.CustomerPages {
         protected global::System.Web.UI.WebControls.DetailsView dvEditCustomer;
         
         /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
         /// btnBack control.
         /// </summary>
         /// <remarks>
@@ -46,6 +55,6 @@ namespace RADwebApp.Forms.CustomerPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCustomer;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsCustomer;
     }
 }

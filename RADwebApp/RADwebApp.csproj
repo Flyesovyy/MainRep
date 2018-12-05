@@ -74,20 +74,26 @@
     <Content Include="App_Data\Emmas_log.ldf">
       <DependentUpon>Emmas.mdf</DependentUpon>
     </Content>
+    <!--><<<<<<< Customers<-->
+    <Content Include="Forms\Customers\CustomerDetails.aspx" />
+    <!-->=======<-->
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Forms\Customers\CustomerAdd.aspx" />
+    <!-->>>>>>>> master<-->
     <Content Include="Forms\Customers\CustomerOrders.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Forms\Customers\Customers.aspx" />
-    <Content Include="Forms\Customers\CustomerEdit.aspx" />
+    <Content Include="Forms\Employees\EmployeeDetails.aspx" />
+    <Content Include="Forms\Employees\Employees.aspx" />
+    <Content Include="Forms\Employees\EmployeeServices.aspx" />
     <Content Include="Forms\RepairPages\AllRepairs.aspx" />
     <Content Include="Forms\RepairPages\OrderTools.aspx" />
     <Content Include="Forms\RepairPages\Warranty.aspx" />
+    <Content Include="Forms\Sales\searchSales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\btnEmployee.png" />
     <Content Include="Images\btnReports.png" />
@@ -139,13 +145,42 @@
     <Content Include="Welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Customers\CustomerAdd.aspx.cs">
-      <DependentUpon>CustomerAdd.aspx</DependentUpon>
+    <Compile Include="Forms\Customers\CustomerDetails.aspx.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\CustomerAdd.aspx.designer.cs">
-      <DependentUpon>CustomerAdd.aspx</DependentUpon>
+    <Compile Include="Forms\Customers\CustomerDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Employees\EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\Employees.aspx.cs">
+      <DependentUpon>Employees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\Employees.aspx.designer.cs">
+      <DependentUpon>Employees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeServices.aspx.cs">
+      <DependentUpon>EmployeeServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeServices.aspx.designer.cs">
+      <DependentUpon>EmployeeServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sales\searchSales.aspx.cs">
+      <DependentUpon>searchSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Sales\searchSales.aspx.designer.cs">
+      <DependentUpon>searchSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Forms\Customers\CustomerOrders.aspx.cs">
       <DependentUpon>CustomerOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,13 +201,6 @@
     </Compile>
     <Compile Include="Forms\Customers\Customers.aspx.designer.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Customers\CustomerEdit.aspx.cs">
-      <DependentUpon>CustomerEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Customers\CustomerEdit.aspx.designer.cs">
-      <DependentUpon>CustomerEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\RepairPages\AllRepairs.aspx.cs">
       <DependentUpon>AllRepairs.aspx</DependentUpon>
@@ -205,6 +233,7 @@
     <Compile Include="LOG.aspx.designer.cs">
       <DependentUpon>LOG.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Welcome.aspx.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>
@@ -234,15 +263,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <!--><<<<<<< Customers<-->
+  <ItemGroup />
+  <!-->=======<-->
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <!-->>>>>>>> master<-->
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

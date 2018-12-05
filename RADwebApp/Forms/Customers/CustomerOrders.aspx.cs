@@ -14,5 +14,10 @@ namespace RADwebApp
             if (IsPostBack) return;
             int id = Convert.ToInt32(Request.QueryString["id"]);
         }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Customers/Customers.aspx");
+        }
     }
 }

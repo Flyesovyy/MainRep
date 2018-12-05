@@ -9,31 +9,48 @@ namespace RADwebApp.Forms.CustomerPages
 {
     public partial class Customers : System.Web.UI.Page
     {
+        public bool flag = false;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            dvCustomerNew.EnableDynamicData(typeof(Customer));
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["mode"] != null)
+            {
+                this.gvCustomers.Visible = false;
+                this.dvCustomerNew.Visible = true;
+                this.btnNewCustomer.Visible = false;
+                this.panelFilters.Visible = false;
+                flag = true;
+            }
         }
 
         protected void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Forms/Customers/CustomerAdd.aspx");
+            this.gvCustomers.Visible = false;
+            this.dvCustomerNew.Visible = true;
+            this.btnNewCustomer.Visible = false;
+            this.panelFilters.Visible = false;
+            flag = true;
         }
 
         protected void gvCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = gvCustomers.SelectedRow.RowIndex;
             string id = gvCustomers.DataKeys[index][0].ToString();
-            Response.Redirect("~/Forms/Customers/CustomerEdit.aspx?id=" + id);
+            Response.Redirect("~/Forms/Customers/CustomerDetails.aspx?id=" + id);
         }
 
-        protected void gvCustomers_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void dvCustomerNew_ItemCommand(object sender, DetailsViewCommandEventArgs e)
         {
-            if (e.CommandName == "Orders")
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
-                string id = gvCustomers.DataKeys[index][0].ToString();
-                Response.Redirect("~/Forms/Customers/CustomerOrders.aspx?id=" + id);                
-            }
+            this.gvCustomers.Visible = true;
+            this.dvCustomerNew.Visible = false;
+            this.btnNewCustomer.Visible = true;
+            this.panelFilters.Visible = true;
+            flag = false;
         }
     }
 }
