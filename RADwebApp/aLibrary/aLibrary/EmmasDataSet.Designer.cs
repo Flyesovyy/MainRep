@@ -48,7 +48,11 @@ namespace aLibrary {
         
         private WarrantyDataTable tableWarranty;
         
-        private sp_orderToolsSelectDataTable tablesp_orderToolsSelect;
+        private orderToolsSelectDataTable tableorderToolsSelect;
+        
+        private OrderToolsDataTableDataTable tableOrderToolsDataTable;
+        
+        private global::System.Data.DataRelation relationFK_OrderToolsDataTable_orderToolsSelect;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -114,8 +118,11 @@ namespace aLibrary {
                 if ((ds.Tables["Warranty"] != null)) {
                     base.Tables.Add(new WarrantyDataTable(ds.Tables["Warranty"]));
                 }
-                if ((ds.Tables["sp_orderToolsSelect"] != null)) {
-                    base.Tables.Add(new sp_orderToolsSelectDataTable(ds.Tables["sp_orderToolsSelect"]));
+                if ((ds.Tables["orderToolsSelect"] != null)) {
+                    base.Tables.Add(new orderToolsSelectDataTable(ds.Tables["orderToolsSelect"]));
+                }
+                if ((ds.Tables["OrderToolsDataTable"] != null)) {
+                    base.Tables.Add(new OrderToolsDataTableDataTable(ds.Tables["OrderToolsDataTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -259,9 +266,19 @@ namespace aLibrary {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_orderToolsSelectDataTable sp_orderToolsSelect {
+        public orderToolsSelectDataTable orderToolsSelect {
             get {
-                return this.tablesp_orderToolsSelect;
+                return this.tableorderToolsSelect;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public OrderToolsDataTableDataTable OrderToolsDataTable {
+            get {
+                return this.tableOrderToolsDataTable;
             }
         }
         
@@ -368,8 +385,11 @@ namespace aLibrary {
                 if ((ds.Tables["Warranty"] != null)) {
                     base.Tables.Add(new WarrantyDataTable(ds.Tables["Warranty"]));
                 }
-                if ((ds.Tables["sp_orderToolsSelect"] != null)) {
-                    base.Tables.Add(new sp_orderToolsSelectDataTable(ds.Tables["sp_orderToolsSelect"]));
+                if ((ds.Tables["orderToolsSelect"] != null)) {
+                    base.Tables.Add(new orderToolsSelectDataTable(ds.Tables["orderToolsSelect"]));
+                }
+                if ((ds.Tables["OrderToolsDataTable"] != null)) {
+                    base.Tables.Add(new OrderToolsDataTableDataTable(ds.Tables["OrderToolsDataTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -476,12 +496,19 @@ namespace aLibrary {
                     this.tableWarranty.InitVars();
                 }
             }
-            this.tablesp_orderToolsSelect = ((sp_orderToolsSelectDataTable)(base.Tables["sp_orderToolsSelect"]));
+            this.tableorderToolsSelect = ((orderToolsSelectDataTable)(base.Tables["orderToolsSelect"]));
             if ((initTable == true)) {
-                if ((this.tablesp_orderToolsSelect != null)) {
-                    this.tablesp_orderToolsSelect.InitVars();
+                if ((this.tableorderToolsSelect != null)) {
+                    this.tableorderToolsSelect.InitVars();
                 }
             }
+            this.tableOrderToolsDataTable = ((OrderToolsDataTableDataTable)(base.Tables["OrderToolsDataTable"]));
+            if ((initTable == true)) {
+                if ((this.tableOrderToolsDataTable != null)) {
+                    this.tableOrderToolsDataTable.InitVars();
+                }
+            }
+            this.relationFK_OrderToolsDataTable_orderToolsSelect = this.Relations["FK_OrderToolsDataTable_orderToolsSelect"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -516,8 +543,32 @@ namespace aLibrary {
             base.Tables.Add(this.tableAllRepairs);
             this.tableWarranty = new WarrantyDataTable();
             base.Tables.Add(this.tableWarranty);
-            this.tablesp_orderToolsSelect = new sp_orderToolsSelectDataTable();
-            base.Tables.Add(this.tablesp_orderToolsSelect);
+            this.tableorderToolsSelect = new orderToolsSelectDataTable();
+            base.Tables.Add(this.tableorderToolsSelect);
+            this.tableOrderToolsDataTable = new OrderToolsDataTableDataTable();
+            base.Tables.Add(this.tableOrderToolsDataTable);
+            this.relationFK_OrderToolsDataTable_orderToolsSelect = new global::System.Data.DataRelation("FK_OrderToolsDataTable_orderToolsSelect", new global::System.Data.DataColumn[] {
+                        this.tableOrderToolsDataTable.custFirstColumn,
+                        this.tableOrderToolsDataTable.custLastColumn,
+                        this.tableOrderToolsDataTable.empFirstColumn,
+                        this.tableOrderToolsDataTable.empLastColumn,
+                        this.tableOrderToolsDataTable.eqpModColumn,
+                        this.tableOrderToolsDataTable.eqpSerNoColumn,
+                        this.tableOrderToolsDataTable.eqpTypeColumn,
+                        this.tableOrderToolsDataTable.orNoColumn,
+                        this.tableOrderToolsDataTable.orDateColumn,
+                        this.tableOrderToolsDataTable.paidColumn}, new global::System.Data.DataColumn[] {
+                        this.tableorderToolsSelect.Customer_First_NameColumn,
+                        this.tableorderToolsSelect.Customer_Last_NameColumn,
+                        this.tableorderToolsSelect.Employee_First_NameColumn,
+                        this.tableorderToolsSelect.Employee_Last_NameColumn,
+                        this.tableorderToolsSelect.Equipment_ModelColumn,
+                        this.tableorderToolsSelect.Equipment_Serial_No_Column,
+                        this.tableorderToolsSelect.Equipment_TypeColumn,
+                        this.tableorderToolsSelect.Order_NumberColumn,
+                        this.tableorderToolsSelect.Order_DateColumn,
+                        this.tableorderToolsSelect._Paid_Column}, false);
+            this.Relations.Add(this.relationFK_OrderToolsDataTable_orderToolsSelect);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -594,7 +645,13 @@ namespace aLibrary {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializesp_orderToolsSelect() {
+        private bool ShouldSerializeorderToolsSelect() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeOrderToolsDataTable() {
             return false;
         }
         
@@ -690,7 +747,10 @@ namespace aLibrary {
         public delegate void WarrantyRowChangeEventHandler(object sender, WarrantyRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void sp_orderToolsSelectRowChangeEventHandler(object sender, sp_orderToolsSelectRowChangeEvent e);
+        public delegate void orderToolsSelectRowChangeEventHandler(object sender, orderToolsSelectRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void OrderToolsDataTableRowChangeEventHandler(object sender, OrderToolsDataTableRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4635,7 +4695,7 @@ namespace aLibrary {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_orderToolsSelectDataTable : global::System.Data.TypedTableBase<sp_orderToolsSelectRow> {
+        public partial class orderToolsSelectDataTable : global::System.Data.TypedTableBase<orderToolsSelectRow> {
             
             private global::System.Data.DataColumn columnCustomer_First_Name;
             
@@ -4659,8 +4719,8 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sp_orderToolsSelectDataTable() {
-                this.TableName = "sp_orderToolsSelect";
+            public orderToolsSelectDataTable() {
+                this.TableName = "orderToolsSelect";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -4668,7 +4728,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal sp_orderToolsSelectDataTable(global::System.Data.DataTable table) {
+            internal orderToolsSelectDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -4685,7 +4745,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected sp_orderToolsSelectDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected orderToolsSelectDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -4781,34 +4841,34 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sp_orderToolsSelectRow this[int index] {
+            public orderToolsSelectRow this[int index] {
                 get {
-                    return ((sp_orderToolsSelectRow)(this.Rows[index]));
+                    return ((orderToolsSelectRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sp_orderToolsSelectRowChangeEventHandler sp_orderToolsSelectRowChanging;
+            public event orderToolsSelectRowChangeEventHandler orderToolsSelectRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sp_orderToolsSelectRowChangeEventHandler sp_orderToolsSelectRowChanged;
+            public event orderToolsSelectRowChangeEventHandler orderToolsSelectRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sp_orderToolsSelectRowChangeEventHandler sp_orderToolsSelectRowDeleting;
+            public event orderToolsSelectRowChangeEventHandler orderToolsSelectRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sp_orderToolsSelectRowChangeEventHandler sp_orderToolsSelectRowDeleted;
+            public event orderToolsSelectRowChangeEventHandler orderToolsSelectRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Addsp_orderToolsSelectRow(sp_orderToolsSelectRow row) {
+            public void AddorderToolsSelectRow(orderToolsSelectRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sp_orderToolsSelectRow Addsp_orderToolsSelectRow(string Customer_First_Name, string Customer_Last_Name, string Employee_First_Name, string Employee_Last_Name, string Equipment_Model, string Equipment_Serial_No_, string Equipment_Type, string Order_Number, System.DateTime Order_Date, bool _Paid_) {
-                sp_orderToolsSelectRow rowsp_orderToolsSelectRow = ((sp_orderToolsSelectRow)(this.NewRow()));
+            public orderToolsSelectRow AddorderToolsSelectRow(string Customer_First_Name, string Customer_Last_Name, string Employee_First_Name, string Employee_Last_Name, string Equipment_Model, string Equipment_Serial_No_, string Equipment_Type, string Order_Number, System.DateTime Order_Date, bool _Paid_) {
+                orderToolsSelectRow roworderToolsSelectRow = ((orderToolsSelectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Customer_First_Name,
                         Customer_Last_Name,
@@ -4820,15 +4880,15 @@ namespace aLibrary {
                         Order_Number,
                         Order_Date,
                         _Paid_};
-                rowsp_orderToolsSelectRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_orderToolsSelectRow);
-                return rowsp_orderToolsSelectRow;
+                roworderToolsSelectRow.ItemArray = columnValuesArray;
+                this.Rows.Add(roworderToolsSelectRow);
+                return roworderToolsSelectRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_orderToolsSelectDataTable cln = ((sp_orderToolsSelectDataTable)(base.Clone()));
+                orderToolsSelectDataTable cln = ((orderToolsSelectDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -4836,7 +4896,7 @@ namespace aLibrary {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_orderToolsSelectDataTable();
+                return new orderToolsSelectDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4879,6 +4939,17 @@ namespace aLibrary {
                 this._columnPaid_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnPaid_");
                 this._columnPaid_.ExtendedProperties.Add("Generator_UserColumnName", "Paid?");
                 base.Columns.Add(this._columnPaid_);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCustomer_First_Name,
+                                this.columnCustomer_Last_Name,
+                                this.columnEmployee_First_Name,
+                                this.columnEmployee_Last_Name,
+                                this.columnEquipment_Model,
+                                this.columnEquipment_Serial_No_,
+                                this.columnEquipment_Type,
+                                this.columnOrder_Number,
+                                this.columnOrder_Date,
+                                this._columnPaid_}, false));
                 this.columnCustomer_First_Name.MaxLength = 30;
                 this.columnCustomer_Last_Name.MaxLength = 50;
                 this.columnEmployee_First_Name.MaxLength = 30;
@@ -4892,28 +4963,28 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sp_orderToolsSelectRow Newsp_orderToolsSelectRow() {
-                return ((sp_orderToolsSelectRow)(this.NewRow()));
+            public orderToolsSelectRow NeworderToolsSelectRow() {
+                return ((orderToolsSelectRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_orderToolsSelectRow(builder);
+                return new orderToolsSelectRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_orderToolsSelectRow);
+                return typeof(orderToolsSelectRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_orderToolsSelectRowChanged != null)) {
-                    this.sp_orderToolsSelectRowChanged(this, new sp_orderToolsSelectRowChangeEvent(((sp_orderToolsSelectRow)(e.Row)), e.Action));
+                if ((this.orderToolsSelectRowChanged != null)) {
+                    this.orderToolsSelectRowChanged(this, new orderToolsSelectRowChangeEvent(((orderToolsSelectRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4921,8 +4992,8 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_orderToolsSelectRowChanging != null)) {
-                    this.sp_orderToolsSelectRowChanging(this, new sp_orderToolsSelectRowChangeEvent(((sp_orderToolsSelectRow)(e.Row)), e.Action));
+                if ((this.orderToolsSelectRowChanging != null)) {
+                    this.orderToolsSelectRowChanging(this, new orderToolsSelectRowChangeEvent(((orderToolsSelectRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4930,8 +5001,8 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_orderToolsSelectRowDeleted != null)) {
-                    this.sp_orderToolsSelectRowDeleted(this, new sp_orderToolsSelectRowChangeEvent(((sp_orderToolsSelectRow)(e.Row)), e.Action));
+                if ((this.orderToolsSelectRowDeleted != null)) {
+                    this.orderToolsSelectRowDeleted(this, new orderToolsSelectRowChangeEvent(((orderToolsSelectRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4939,14 +5010,14 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_orderToolsSelectRowDeleting != null)) {
-                    this.sp_orderToolsSelectRowDeleting(this, new sp_orderToolsSelectRowChangeEvent(((sp_orderToolsSelectRow)(e.Row)), e.Action));
+                if ((this.orderToolsSelectRowDeleting != null)) {
+                    this.orderToolsSelectRowDeleting(this, new orderToolsSelectRowChangeEvent(((orderToolsSelectRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Removesp_orderToolsSelectRow(sp_orderToolsSelectRow row) {
+            public void RemoveorderToolsSelectRow(orderToolsSelectRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -4973,7 +5044,392 @@ namespace aLibrary {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_orderToolsSelectDataTable";
+                attribute2.FixedValue = "orderToolsSelectDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class OrderToolsDataTableDataTable : global::System.Data.TypedTableBase<OrderToolsDataTableRow> {
+            
+            private global::System.Data.DataColumn columncustFirst;
+            
+            private global::System.Data.DataColumn columncustLast;
+            
+            private global::System.Data.DataColumn columnempFirst;
+            
+            private global::System.Data.DataColumn columnempLast;
+            
+            private global::System.Data.DataColumn columneqpMod;
+            
+            private global::System.Data.DataColumn columneqpSerNo;
+            
+            private global::System.Data.DataColumn columneqpType;
+            
+            private global::System.Data.DataColumn columnorNo;
+            
+            private global::System.Data.DataColumn columnorDate;
+            
+            private global::System.Data.DataColumn columnpaid;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableDataTable() {
+                this.TableName = "OrderToolsDataTable";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal OrderToolsDataTableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected OrderToolsDataTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn custFirstColumn {
+                get {
+                    return this.columncustFirst;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn custLastColumn {
+                get {
+                    return this.columncustLast;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn empFirstColumn {
+                get {
+                    return this.columnempFirst;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn empLastColumn {
+                get {
+                    return this.columnempLast;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn eqpModColumn {
+                get {
+                    return this.columneqpMod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn eqpSerNoColumn {
+                get {
+                    return this.columneqpSerNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn eqpTypeColumn {
+                get {
+                    return this.columneqpType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn orNoColumn {
+                get {
+                    return this.columnorNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn orDateColumn {
+                get {
+                    return this.columnorDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn paidColumn {
+                get {
+                    return this.columnpaid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableRow this[int index] {
+                get {
+                    return ((OrderToolsDataTableRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event OrderToolsDataTableRowChangeEventHandler OrderToolsDataTableRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event OrderToolsDataTableRowChangeEventHandler OrderToolsDataTableRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event OrderToolsDataTableRowChangeEventHandler OrderToolsDataTableRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event OrderToolsDataTableRowChangeEventHandler OrderToolsDataTableRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddOrderToolsDataTableRow(OrderToolsDataTableRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableRow AddOrderToolsDataTableRow(string custFirst, string custLast, string empFirst, string empLast, string eqpMod, string eqpSerNo, string eqpType, string orNo, System.DateTime orDate, bool paid) {
+                OrderToolsDataTableRow rowOrderToolsDataTableRow = ((OrderToolsDataTableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        custFirst,
+                        custLast,
+                        empFirst,
+                        empLast,
+                        eqpMod,
+                        eqpSerNo,
+                        eqpType,
+                        orNo,
+                        orDate,
+                        paid};
+                rowOrderToolsDataTableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowOrderToolsDataTableRow);
+                return rowOrderToolsDataTableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                OrderToolsDataTableDataTable cln = ((OrderToolsDataTableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new OrderToolsDataTableDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columncustFirst = base.Columns["custFirst"];
+                this.columncustLast = base.Columns["custLast"];
+                this.columnempFirst = base.Columns["empFirst"];
+                this.columnempLast = base.Columns["empLast"];
+                this.columneqpMod = base.Columns["eqpMod"];
+                this.columneqpSerNo = base.Columns["eqpSerNo"];
+                this.columneqpType = base.Columns["eqpType"];
+                this.columnorNo = base.Columns["orNo"];
+                this.columnorDate = base.Columns["orDate"];
+                this.columnpaid = base.Columns["paid"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columncustFirst = new global::System.Data.DataColumn("custFirst", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustFirst);
+                this.columncustLast = new global::System.Data.DataColumn("custLast", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustLast);
+                this.columnempFirst = new global::System.Data.DataColumn("empFirst", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempFirst);
+                this.columnempLast = new global::System.Data.DataColumn("empLast", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempLast);
+                this.columneqpMod = new global::System.Data.DataColumn("eqpMod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columneqpMod);
+                this.columneqpSerNo = new global::System.Data.DataColumn("eqpSerNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columneqpSerNo);
+                this.columneqpType = new global::System.Data.DataColumn("eqpType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columneqpType);
+                this.columnorNo = new global::System.Data.DataColumn("orNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorNo);
+                this.columnorDate = new global::System.Data.DataColumn("orDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorDate);
+                this.columnpaid = new global::System.Data.DataColumn("paid", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpaid);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncustFirst,
+                                this.columncustLast,
+                                this.columnempFirst,
+                                this.columnempLast,
+                                this.columneqpMod,
+                                this.columneqpSerNo,
+                                this.columneqpType,
+                                this.columnorNo,
+                                this.columnorDate,
+                                this.columnpaid}, false));
+                this.columncustFirst.MaxLength = 30;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableRow NewOrderToolsDataTableRow() {
+                return ((OrderToolsDataTableRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new OrderToolsDataTableRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(OrderToolsDataTableRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.OrderToolsDataTableRowChanged != null)) {
+                    this.OrderToolsDataTableRowChanged(this, new OrderToolsDataTableRowChangeEvent(((OrderToolsDataTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.OrderToolsDataTableRowChanging != null)) {
+                    this.OrderToolsDataTableRowChanging(this, new OrderToolsDataTableRowChangeEvent(((OrderToolsDataTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.OrderToolsDataTableRowDeleted != null)) {
+                    this.OrderToolsDataTableRowDeleted(this, new OrderToolsDataTableRowChangeEvent(((OrderToolsDataTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.OrderToolsDataTableRowDeleting != null)) {
+                    this.OrderToolsDataTableRowDeleting(this, new OrderToolsDataTableRowChangeEvent(((OrderToolsDataTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveOrderToolsDataTableRow(OrderToolsDataTableRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                EmmasDataSet ds = new EmmasDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "OrderToolsDataTableDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -7043,15 +7499,15 @@ namespace aLibrary {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_orderToolsSelectRow : global::System.Data.DataRow {
+        public partial class orderToolsSelectRow : global::System.Data.DataRow {
             
-            private sp_orderToolsSelectDataTable tablesp_orderToolsSelect;
+            private orderToolsSelectDataTable tableorderToolsSelect;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal sp_orderToolsSelectRow(global::System.Data.DataRowBuilder rb) : 
+            internal orderToolsSelectRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_orderToolsSelect = ((sp_orderToolsSelectDataTable)(this.Table));
+                this.tableorderToolsSelect = ((orderToolsSelectDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7059,15 +7515,15 @@ namespace aLibrary {
             public string Customer_First_Name {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Customer_First_NameColumn]));
+                        return ((string)(this[this.tableorderToolsSelect.Customer_First_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer First Name\' in table \'sp_orderToolsSelect\' is DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer First Name\' in table \'orderToolsSelect\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Customer_First_NameColumn] = value;
+                    this[this.tableorderToolsSelect.Customer_First_NameColumn] = value;
                 }
             }
             
@@ -7076,15 +7532,14 @@ namespace aLibrary {
             public string Customer_Last_Name {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Customer_Last_NameColumn]));
+                        return ((string)(this[this.tableorderToolsSelect.Customer_Last_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer Last Name\' in table \'sp_orderToolsSelect\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer Last Name\' in table \'orderToolsSelect\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Customer_Last_NameColumn] = value;
+                    this[this.tableorderToolsSelect.Customer_Last_NameColumn] = value;
                 }
             }
             
@@ -7093,15 +7548,15 @@ namespace aLibrary {
             public string Employee_First_Name {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Employee_First_NameColumn]));
+                        return ((string)(this[this.tableorderToolsSelect.Employee_First_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Employee First Name\' in table \'sp_orderToolsSelect\' is DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Employee First Name\' in table \'orderToolsSelect\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Employee_First_NameColumn] = value;
+                    this[this.tableorderToolsSelect.Employee_First_NameColumn] = value;
                 }
             }
             
@@ -7110,15 +7565,14 @@ namespace aLibrary {
             public string Employee_Last_Name {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Employee_Last_NameColumn]));
+                        return ((string)(this[this.tableorderToolsSelect.Employee_Last_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Employee Last Name\' in table \'sp_orderToolsSelect\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Employee Last Name\' in table \'orderToolsSelect\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Employee_Last_NameColumn] = value;
+                    this[this.tableorderToolsSelect.Employee_Last_NameColumn] = value;
                 }
             }
             
@@ -7127,14 +7581,14 @@ namespace aLibrary {
             public string Equipment_Model {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Equipment_ModelColumn]));
+                        return ((string)(this[this.tableorderToolsSelect.Equipment_ModelColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Equipment Model\' in table \'sp_orderToolsSelect\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Equipment Model\' in table \'orderToolsSelect\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Equipment_ModelColumn] = value;
+                    this[this.tableorderToolsSelect.Equipment_ModelColumn] = value;
                 }
             }
             
@@ -7143,15 +7597,15 @@ namespace aLibrary {
             public string Equipment_Serial_No_ {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Equipment_Serial_No_Column]));
+                        return ((string)(this[this.tableorderToolsSelect.Equipment_Serial_No_Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Equipment Serial No_\' in table \'sp_orderToolsSelect\' is DBN" +
-                                "ull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Equipment Serial No_\' in table \'orderToolsSelect\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Equipment_Serial_No_Column] = value;
+                    this[this.tableorderToolsSelect.Equipment_Serial_No_Column] = value;
                 }
             }
             
@@ -7160,14 +7614,14 @@ namespace aLibrary {
             public string Equipment_Type {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Equipment_TypeColumn]));
+                        return ((string)(this[this.tableorderToolsSelect.Equipment_TypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Equipment Type\' in table \'sp_orderToolsSelect\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Equipment Type\' in table \'orderToolsSelect\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Equipment_TypeColumn] = value;
+                    this[this.tableorderToolsSelect.Equipment_TypeColumn] = value;
                 }
             }
             
@@ -7176,14 +7630,14 @@ namespace aLibrary {
             public string Order_Number {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_orderToolsSelect.Order_NumberColumn]));
+                        return ((string)(this[this.tableorderToolsSelect.Order_NumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Order Number\' in table \'sp_orderToolsSelect\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Order Number\' in table \'orderToolsSelect\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Order_NumberColumn] = value;
+                    this[this.tableorderToolsSelect.Order_NumberColumn] = value;
                 }
             }
             
@@ -7192,14 +7646,14 @@ namespace aLibrary {
             public System.DateTime Order_Date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_orderToolsSelect.Order_DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableorderToolsSelect.Order_DateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Order Date\' in table \'sp_orderToolsSelect\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Order Date\' in table \'orderToolsSelect\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect.Order_DateColumn] = value;
+                    this[this.tableorderToolsSelect.Order_DateColumn] = value;
                 }
             }
             
@@ -7208,135 +7662,452 @@ namespace aLibrary {
             public bool _Paid_ {
                 get {
                     try {
-                        return ((bool)(this[this.tablesp_orderToolsSelect._Paid_Column]));
+                        return ((bool)(this[this.tableorderToolsSelect._Paid_Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Paid?\' in table \'sp_orderToolsSelect\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Paid?\' in table \'orderToolsSelect\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_orderToolsSelect._Paid_Column] = value;
+                    this[this.tableorderToolsSelect._Paid_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableRow OrderToolsDataTableRowParent {
+                get {
+                    return ((OrderToolsDataTableRow)(this.GetParentRow(this.Table.ParentRelations["FK_OrderToolsDataTable_orderToolsSelect"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OrderToolsDataTable_orderToolsSelect"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCustomer_First_NameNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Customer_First_NameColumn);
+                return this.IsNull(this.tableorderToolsSelect.Customer_First_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCustomer_First_NameNull() {
-                this[this.tablesp_orderToolsSelect.Customer_First_NameColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Customer_First_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCustomer_Last_NameNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Customer_Last_NameColumn);
+                return this.IsNull(this.tableorderToolsSelect.Customer_Last_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCustomer_Last_NameNull() {
-                this[this.tablesp_orderToolsSelect.Customer_Last_NameColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Customer_Last_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEmployee_First_NameNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Employee_First_NameColumn);
+                return this.IsNull(this.tableorderToolsSelect.Employee_First_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEmployee_First_NameNull() {
-                this[this.tablesp_orderToolsSelect.Employee_First_NameColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Employee_First_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEmployee_Last_NameNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Employee_Last_NameColumn);
+                return this.IsNull(this.tableorderToolsSelect.Employee_Last_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEmployee_Last_NameNull() {
-                this[this.tablesp_orderToolsSelect.Employee_Last_NameColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Employee_Last_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEquipment_ModelNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Equipment_ModelColumn);
+                return this.IsNull(this.tableorderToolsSelect.Equipment_ModelColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEquipment_ModelNull() {
-                this[this.tablesp_orderToolsSelect.Equipment_ModelColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Equipment_ModelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEquipment_Serial_No_Null() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Equipment_Serial_No_Column);
+                return this.IsNull(this.tableorderToolsSelect.Equipment_Serial_No_Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEquipment_Serial_No_Null() {
-                this[this.tablesp_orderToolsSelect.Equipment_Serial_No_Column] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Equipment_Serial_No_Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEquipment_TypeNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Equipment_TypeColumn);
+                return this.IsNull(this.tableorderToolsSelect.Equipment_TypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEquipment_TypeNull() {
-                this[this.tablesp_orderToolsSelect.Equipment_TypeColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Equipment_TypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsOrder_NumberNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Order_NumberColumn);
+                return this.IsNull(this.tableorderToolsSelect.Order_NumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetOrder_NumberNull() {
-                this[this.tablesp_orderToolsSelect.Order_NumberColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Order_NumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsOrder_DateNull() {
-                return this.IsNull(this.tablesp_orderToolsSelect.Order_DateColumn);
+                return this.IsNull(this.tableorderToolsSelect.Order_DateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetOrder_DateNull() {
-                this[this.tablesp_orderToolsSelect.Order_DateColumn] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect.Order_DateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is_Paid_Null() {
-                return this.IsNull(this.tablesp_orderToolsSelect._Paid_Column);
+                return this.IsNull(this.tableorderToolsSelect._Paid_Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set_Paid_Null() {
-                this[this.tablesp_orderToolsSelect._Paid_Column] = global::System.Convert.DBNull;
+                this[this.tableorderToolsSelect._Paid_Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class OrderToolsDataTableRow : global::System.Data.DataRow {
+            
+            private OrderToolsDataTableDataTable tableOrderToolsDataTable;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal OrderToolsDataTableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableOrderToolsDataTable = ((OrderToolsDataTableDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string custFirst {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.custFirstColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'custFirst\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.custFirstColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string custLast {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.custLastColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'custLast\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.custLastColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string empFirst {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.empFirstColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'empFirst\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.empFirstColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string empLast {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.empLastColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'empLast\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.empLastColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string eqpMod {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.eqpModColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'eqpMod\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.eqpModColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string eqpSerNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.eqpSerNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'eqpSerNo\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.eqpSerNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string eqpType {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.eqpTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'eqpType\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.eqpTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string orNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsDataTable.orNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'orNo\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.orNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime orDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableOrderToolsDataTable.orDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'orDate\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.orDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool paid {
+                get {
+                    try {
+                        return ((bool)(this[this.tableOrderToolsDataTable.paidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'paid\' in table \'OrderToolsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsDataTable.paidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IscustFirstNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.custFirstColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetcustFirstNull() {
+                this[this.tableOrderToolsDataTable.custFirstColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IscustLastNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.custLastColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetcustLastNull() {
+                this[this.tableOrderToolsDataTable.custLastColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsempFirstNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.empFirstColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetempFirstNull() {
+                this[this.tableOrderToolsDataTable.empFirstColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsempLastNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.empLastColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetempLastNull() {
+                this[this.tableOrderToolsDataTable.empLastColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IseqpModNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.eqpModColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SeteqpModNull() {
+                this[this.tableOrderToolsDataTable.eqpModColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IseqpSerNoNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.eqpSerNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SeteqpSerNoNull() {
+                this[this.tableOrderToolsDataTable.eqpSerNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IseqpTypeNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.eqpTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SeteqpTypeNull() {
+                this[this.tableOrderToolsDataTable.eqpTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsorNoNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.orNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetorNoNull() {
+                this[this.tableOrderToolsDataTable.orNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsorDateNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.orDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetorDateNull() {
+                this[this.tableOrderToolsDataTable.orDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IspaidNull() {
+                return this.IsNull(this.tableOrderToolsDataTable.paidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetpaidNull() {
+                this[this.tableOrderToolsDataTable.paidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public orderToolsSelectRow[] GetorderToolsSelectRows() {
+                if ((this.Table.ChildRelations["FK_OrderToolsDataTable_orderToolsSelect"] == null)) {
+                    return new orderToolsSelectRow[0];
+                }
+                else {
+                    return ((orderToolsSelectRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OrderToolsDataTable_orderToolsSelect"])));
+                }
             }
         }
         
@@ -7752,22 +8523,56 @@ namespace aLibrary {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class sp_orderToolsSelectRowChangeEvent : global::System.EventArgs {
+        public class orderToolsSelectRowChangeEvent : global::System.EventArgs {
             
-            private sp_orderToolsSelectRow eventRow;
+            private orderToolsSelectRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sp_orderToolsSelectRowChangeEvent(sp_orderToolsSelectRow row, global::System.Data.DataRowAction action) {
+            public orderToolsSelectRowChangeEvent(orderToolsSelectRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sp_orderToolsSelectRow Row {
+            public orderToolsSelectRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class OrderToolsDataTableRowChangeEvent : global::System.EventArgs {
+            
+            private OrderToolsDataTableRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableRowChangeEvent(OrderToolsDataTableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -10277,7 +11082,7 @@ WHERE        (service_order.serordWarranty = @Param1)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_orderToolsSelectTableAdapter : global::System.ComponentModel.Component {
+    public partial class orderToolsSelectTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -10291,7 +11096,7 @@ WHERE        (service_order.serordWarranty = @Param1)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public sp_orderToolsSelectTableAdapter() {
+        public orderToolsSelectTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -10388,7 +11193,7 @@ WHERE        (service_order.serordWarranty = @Param1)";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_orderToolsSelect";
+            tableMapping.DataSetTable = "orderToolsSelect";
             tableMapping.ColumnMappings.Add("Customer First Name", "Customer First Name");
             tableMapping.ColumnMappings.Add("Customer Last Name", "Customer Last Name");
             tableMapping.ColumnMappings.Add("Employee First Name", "Employee First Name");
@@ -10424,7 +11229,7 @@ WHERE        (service_order.serordWarranty = @Param1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EmmasDataSet.sp_orderToolsSelectDataTable dataTable) {
+        public virtual int Fill(EmmasDataSet.orderToolsSelectDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10437,9 +11242,9 @@ WHERE        (service_order.serordWarranty = @Param1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EmmasDataSet.sp_orderToolsSelectDataTable GetData() {
+        public virtual EmmasDataSet.orderToolsSelectDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            EmmasDataSet.sp_orderToolsSelectDataTable dataTable = new EmmasDataSet.sp_orderToolsSelectDataTable();
+            EmmasDataSet.orderToolsSelectDataTable dataTable = new EmmasDataSet.orderToolsSelectDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

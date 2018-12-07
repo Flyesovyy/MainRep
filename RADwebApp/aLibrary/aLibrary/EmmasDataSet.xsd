@@ -385,7 +385,7 @@ WHERE        (service_order.serordWarranty = @Param1)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_orderToolsSelectTableAdapter" GeneratorDataComponentClassName="sp_orderToolsSelectTableAdapter" Name="sp_orderToolsSelect" UserDataComponentName="sp_orderToolsSelectTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="orderToolsSelectTableAdapter" GeneratorDataComponentClassName="orderToolsSelectTableAdapter" Name="orderToolsSelect" UserDataComponentName="orderToolsSelectTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectName="[C:\USERS\NERONIC\SOURCE\REPOS\MAINREP\RADWEBAPP\ALIBRARY\ALIBRARY\EMMAS.MDF].dbo.sp_orderToolsSelect" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -840,7 +840,7 @@ WHERE        (service_order.serordWarranty = @Param1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_orderToolsSelect" msprop:Generator_TableClassName="sp_orderToolsSelectDataTable" msprop:Generator_TableVarName="tablesp_orderToolsSelect" msprop:Generator_TablePropName="sp_orderToolsSelect" msprop:Generator_RowDeletingName="sp_orderToolsSelectRowDeleting" msprop:Generator_RowChangingName="sp_orderToolsSelectRowChanging" msprop:Generator_RowEvHandlerName="sp_orderToolsSelectRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_orderToolsSelectRowDeleted" msprop:Generator_UserTableName="sp_orderToolsSelect" msprop:Generator_RowChangedName="sp_orderToolsSelectRowChanged" msprop:Generator_RowEvArgName="sp_orderToolsSelectRowChangeEvent" msprop:Generator_RowClassName="sp_orderToolsSelectRow">
+        <xs:element name="orderToolsSelect" msprop:Generator_TableClassName="orderToolsSelectDataTable" msprop:Generator_TableVarName="tableorderToolsSelect" msprop:Generator_TablePropName="orderToolsSelect" msprop:Generator_RowDeletingName="orderToolsSelectRowDeleting" msprop:Generator_RowChangingName="orderToolsSelectRowChanging" msprop:Generator_RowEvHandlerName="orderToolsSelectRowChangeEventHandler" msprop:Generator_RowDeletedName="orderToolsSelectRowDeleted" msprop:Generator_UserTableName="orderToolsSelect" msprop:Generator_RowChangedName="orderToolsSelectRowChanged" msprop:Generator_RowEvArgName="orderToolsSelectRowChangeEvent" msprop:Generator_RowClassName="orderToolsSelectRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Customer_x0020_First_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_First_Name" msprop:Generator_ColumnPropNameInRow="Customer_First_Name" msprop:Generator_ColumnPropNameInTable="Customer_First_NameColumn" msprop:Generator_UserColumnName="Customer First Name" minOccurs="0">
@@ -904,6 +904,28 @@ WHERE        (service_order.serordWarranty = @Param1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="OrderToolsDataTable" msprop:Generator_TableClassName="OrderToolsDataTableDataTable" msprop:Generator_TableVarName="tableOrderToolsDataTable" msprop:Generator_RowChangedName="OrderToolsDataTableRowChanged" msprop:Generator_TablePropName="OrderToolsDataTable" msprop:Generator_RowDeletingName="OrderToolsDataTableRowDeleting" msprop:Generator_RowChangingName="OrderToolsDataTableRowChanging" msprop:Generator_RowEvHandlerName="OrderToolsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderToolsDataTableRowDeleted" msprop:Generator_RowClassName="OrderToolsDataTableRow" msprop:Generator_UserTableName="OrderToolsDataTable" msprop:Generator_RowEvArgName="OrderToolsDataTableRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="custFirst" msprop:Generator_ColumnVarNameInTable="columncustFirst" msprop:Generator_ColumnPropNameInRow="custFirst" msprop:Generator_ColumnPropNameInTable="custFirstColumn" msprop:Generator_UserColumnName="custFirst" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custLast" msprop:Generator_ColumnVarNameInTable="columncustLast" msprop:Generator_ColumnPropNameInRow="custLast" msprop:Generator_ColumnPropNameInTable="custLastColumn" msprop:Generator_UserColumnName="custLast" type="xs:string" minOccurs="0" />
+              <xs:element name="empFirst" msprop:Generator_ColumnVarNameInTable="columnempFirst" msprop:Generator_ColumnPropNameInRow="empFirst" msprop:Generator_ColumnPropNameInTable="empFirstColumn" msprop:Generator_UserColumnName="empFirst" type="xs:string" minOccurs="0" />
+              <xs:element name="empLast" msprop:Generator_ColumnVarNameInTable="columnempLast" msprop:Generator_ColumnPropNameInRow="empLast" msprop:Generator_ColumnPropNameInTable="empLastColumn" msprop:Generator_UserColumnName="empLast" type="xs:string" minOccurs="0" />
+              <xs:element name="eqpMod" msprop:Generator_ColumnVarNameInTable="columneqpMod" msprop:Generator_ColumnPropNameInRow="eqpMod" msprop:Generator_ColumnPropNameInTable="eqpModColumn" msprop:Generator_UserColumnName="eqpMod" type="xs:string" minOccurs="0" />
+              <xs:element name="eqpSerNo" msprop:Generator_ColumnVarNameInTable="columneqpSerNo" msprop:Generator_ColumnPropNameInRow="eqpSerNo" msprop:Generator_ColumnPropNameInTable="eqpSerNoColumn" msprop:Generator_UserColumnName="eqpSerNo" type="xs:string" minOccurs="0" />
+              <xs:element name="eqpType" msprop:Generator_ColumnVarNameInTable="columneqpType" msprop:Generator_ColumnPropNameInRow="eqpType" msprop:Generator_ColumnPropNameInTable="eqpTypeColumn" msprop:Generator_UserColumnName="eqpType" type="xs:string" minOccurs="0" />
+              <xs:element name="orNo" msprop:Generator_ColumnVarNameInTable="columnorNo" msprop:Generator_ColumnPropNameInRow="orNo" msprop:Generator_ColumnPropNameInTable="orNoColumn" msprop:Generator_UserColumnName="orNo" type="xs:string" minOccurs="0" />
+              <xs:element name="orDate" msprop:Generator_ColumnVarNameInTable="columnorDate" msprop:Generator_ColumnPropNameInRow="orDate" msprop:Generator_ColumnPropNameInTable="orDateColumn" msprop:Generator_UserColumnName="orDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="paid" msprop:Generator_ColumnVarNameInTable="columnpaid" msprop:Generator_ColumnPropNameInRow="paid" msprop:Generator_ColumnPropNameInTable="paidColumn" msprop:Generator_UserColumnName="paid" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -926,5 +948,36 @@ WHERE        (service_order.serordWarranty = @Param1)</CommandText>
       <xs:selector xpath=".//mstns:employee" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
+    <xs:unique name="orderToolsSelect_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:orderToolsSelect" />
+      <xs:field xpath="mstns:Customer_x0020_First_x0020_Name" />
+      <xs:field xpath="mstns:Customer_x0020_Last_x0020_Name" />
+      <xs:field xpath="mstns:Employee_x0020_First_x0020_Name" />
+      <xs:field xpath="mstns:Employee_x0020_Last_x0020_Name" />
+      <xs:field xpath="mstns:Equipment_x0020_Model" />
+      <xs:field xpath="mstns:Equipment_x0020_Serial_x0020_No_" />
+      <xs:field xpath="mstns:Equipment_x0020_Type" />
+      <xs:field xpath="mstns:Order_x0020_Number" />
+      <xs:field xpath="mstns:Order_x0020_Date" />
+      <xs:field xpath="mstns:Paid_x003F_" />
+    </xs:unique>
+    <xs:unique name="OrderToolsDataTable_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:OrderToolsDataTable" />
+      <xs:field xpath="mstns:custFirst" />
+      <xs:field xpath="mstns:custLast" />
+      <xs:field xpath="mstns:empFirst" />
+      <xs:field xpath="mstns:empLast" />
+      <xs:field xpath="mstns:eqpMod" />
+      <xs:field xpath="mstns:eqpSerNo" />
+      <xs:field xpath="mstns:eqpType" />
+      <xs:field xpath="mstns:orNo" />
+      <xs:field xpath="mstns:orDate" />
+      <xs:field xpath="mstns:paid" />
+    </xs:unique>
   </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_OrderToolsDataTable_orderToolsSelect" msdata:parent="OrderToolsDataTable" msdata:child="orderToolsSelect" msdata:parentkey="custFirst custLast empFirst empLast eqpMod eqpSerNo eqpType orNo orDate paid" msdata:childkey="Customer_x0020_First_x0020_Name Customer_x0020_Last_x0020_Name Employee_x0020_First_x0020_Name Employee_x0020_Last_x0020_Name Equipment_x0020_Model Equipment_x0020_Serial_x0020_No_ Equipment_x0020_Type Order_x0020_Number Order_x0020_Date Paid_x003F_" msprop:Generator_UserChildTable="orderToolsSelect" msprop:Generator_ChildPropName="GetorderToolsSelectRows" msprop:Generator_UserRelationName="FK_OrderToolsDataTable_orderToolsSelect" msprop:Generator_RelationVarName="relationFK_OrderToolsDataTable_orderToolsSelect" msprop:Generator_UserParentTable="OrderToolsDataTable" msprop:Generator_ParentPropName="OrderToolsDataTableRowParent" />
+    </xs:appinfo>
+  </xs:annotation>
 </xs:schema>

@@ -54,33 +54,33 @@
                 <asp:TextBox ID="txtCustLast" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblEmpFirst" runat="server" Text="Employee First Name:"></asp:Label>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmpFirst" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblEmpLast" runat="server" Text="Employee Last Name:"></asp:Label>
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmpLast" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblEqpMod" runat="server" Text="Equipment Model:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEqpMod" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblEqpSer" runat="server" Text="Equipment Serial No.:"></asp:Label>
-                &nbsp;<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="txtEqpSerial" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblEqpType" runat="server" Text="Equipment Type:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEqpType" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblOrdNum" runat="server" Text="Order Number:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtOrdNo" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblOrdDate" runat="server" Text="Order Date:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtOrdDate" runat="server"></asp:TextBox>
                 <br />
                 <asp:Label ID="lblPaid" runat="server" Text="Paid(true or false):"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPaid" runat="server"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
             </asp:Panel>

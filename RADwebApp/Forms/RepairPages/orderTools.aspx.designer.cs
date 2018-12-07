@@ -121,13 +121,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblEmpFirst;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtEmpFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpFirst;
         
         /// <summary>
         /// lblEmpLast control.
@@ -139,13 +139,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblEmpLast;
         
         /// <summary>
-        /// TextBox2 control.
+        /// txtEmpLast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpLast;
         
         /// <summary>
         /// lblEqpMod control.
@@ -157,13 +157,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblEqpMod;
         
         /// <summary>
-        /// TextBox3 control.
+        /// txtEqpMod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtEqpMod;
         
         /// <summary>
         /// lblEqpSer control.
@@ -175,13 +175,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblEqpSer;
         
         /// <summary>
-        /// TextBox4 control.
+        /// txtEqpSerial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtEqpSerial;
         
         /// <summary>
         /// lblEqpType control.
@@ -193,13 +193,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblEqpType;
         
         /// <summary>
-        /// TextBox5 control.
+        /// txtEqpType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox txtEqpType;
         
         /// <summary>
         /// lblOrdNum control.
@@ -211,13 +211,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblOrdNum;
         
         /// <summary>
-        /// TextBox7 control.
+        /// txtOrdNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox txtOrdNo;
         
         /// <summary>
         /// lblOrdDate control.
@@ -229,13 +229,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblOrdDate;
         
         /// <summary>
-        /// TextBox8 control.
+        /// txtOrdDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox txtOrdDate;
         
         /// <summary>
         /// lblPaid control.
@@ -247,13 +247,13 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Label lblPaid;
         
         /// <summary>
-        /// TextBox9 control.
+        /// txtPaid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox txtPaid;
         
         /// <summary>
         /// btnSubmit control.
