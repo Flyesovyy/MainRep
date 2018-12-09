@@ -548,16 +548,6 @@ namespace aLibrary {
             this.tableOrderToolsDataTable = new OrderToolsDataTableDataTable();
             base.Tables.Add(this.tableOrderToolsDataTable);
             this.relationFK_OrderToolsDataTable_orderToolsSelect = new global::System.Data.DataRelation("FK_OrderToolsDataTable_orderToolsSelect", new global::System.Data.DataColumn[] {
-                        this.tableOrderToolsDataTable.custFirstColumn,
-                        this.tableOrderToolsDataTable.custLastColumn,
-                        this.tableOrderToolsDataTable.empFirstColumn,
-                        this.tableOrderToolsDataTable.empLastColumn,
-                        this.tableOrderToolsDataTable.eqpModColumn,
-                        this.tableOrderToolsDataTable.eqpSerNoColumn,
-                        this.tableOrderToolsDataTable.eqpTypeColumn,
-                        this.tableOrderToolsDataTable.orNoColumn,
-                        this.tableOrderToolsDataTable.orDateColumn,
-                        this.tableOrderToolsDataTable.paidColumn}, new global::System.Data.DataColumn[] {
                         this.tableorderToolsSelect.Customer_First_NameColumn,
                         this.tableorderToolsSelect.Customer_Last_NameColumn,
                         this.tableorderToolsSelect.Employee_First_NameColumn,
@@ -567,7 +557,17 @@ namespace aLibrary {
                         this.tableorderToolsSelect.Equipment_TypeColumn,
                         this.tableorderToolsSelect.Order_NumberColumn,
                         this.tableorderToolsSelect.Order_DateColumn,
-                        this.tableorderToolsSelect._Paid_Column}, false);
+                        this.tableorderToolsSelect._Paid_Column}, new global::System.Data.DataColumn[] {
+                        this.tableOrderToolsDataTable.custFirstColumn,
+                        this.tableOrderToolsDataTable.custLastColumn,
+                        this.tableOrderToolsDataTable.empFirstColumn,
+                        this.tableOrderToolsDataTable.empLastColumn,
+                        this.tableOrderToolsDataTable.eqpModColumn,
+                        this.tableOrderToolsDataTable.eqpSerNoColumn,
+                        this.tableOrderToolsDataTable.eqpTypeColumn,
+                        this.tableOrderToolsDataTable.orNoColumn,
+                        this.tableOrderToolsDataTable.orDateColumn,
+                        this.tableOrderToolsDataTable.paidColumn}, false);
             this.Relations.Add(this.relationFK_OrderToolsDataTable_orderToolsSelect);
         }
         
@@ -7675,17 +7675,6 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrderToolsDataTableRow OrderToolsDataTableRowParent {
-                get {
-                    return ((OrderToolsDataTableRow)(this.GetParentRow(this.Table.ParentRelations["FK_OrderToolsDataTable_orderToolsSelect"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_OrderToolsDataTable_orderToolsSelect"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCustomer_First_NameNull() {
                 return this.IsNull(this.tableorderToolsSelect.Customer_First_NameColumn);
             }
@@ -7802,6 +7791,17 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set_Paid_Null() {
                 this[this.tableorderToolsSelect._Paid_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrderToolsDataTableRow[] GetOrderToolsDataTableRows() {
+                if ((this.Table.ChildRelations["FK_OrderToolsDataTable_orderToolsSelect"] == null)) {
+                    return new OrderToolsDataTableRow[0];
+                }
+                else {
+                    return ((OrderToolsDataTableRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OrderToolsDataTable_orderToolsSelect"])));
+                }
             }
         }
         
@@ -7981,6 +7981,17 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public orderToolsSelectRow orderToolsSelectRowParent {
+                get {
+                    return ((orderToolsSelectRow)(this.GetParentRow(this.Table.ParentRelations["FK_OrderToolsDataTable_orderToolsSelect"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_OrderToolsDataTable_orderToolsSelect"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IscustFirstNull() {
                 return this.IsNull(this.tableOrderToolsDataTable.custFirstColumn);
             }
@@ -8097,17 +8108,6 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetpaidNull() {
                 this[this.tableOrderToolsDataTable.paidColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public orderToolsSelectRow[] GetorderToolsSelectRows() {
-                if ((this.Table.ChildRelations["FK_OrderToolsDataTable_orderToolsSelect"] == null)) {
-                    return new orderToolsSelectRow[0];
-                }
-                else {
-                    return ((orderToolsSelectRow[])(base.GetChildRows(this.Table.ChildRelations["FK_OrderToolsDataTable_orderToolsSelect"])));
-                }
             }
         }
         
